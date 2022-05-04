@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from django.utils.decorators import method_decorator
 from django.views import View
+from django.contrib.auth.hashers import make_password
 from .models import Usuarios
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -24,7 +25,7 @@ class UsuarioView(View):
         if request.method == 'POST':
             datos={'mensaje':'Exito'}
             jd = json.loads(request.body)
-            Usuarios.objects.create(nombre=jd['nombre'],apellidos=jd['apellidos'],email=jd['email'],password=jd['password'])
+            Usuarios.objects.create(nombre=jd['nombre'],apellidos=jd['apellidos'],email=jd['email'],password=make_password(jd['password']))
             return JsonResponse(datos)
         else:
             datos={'mensaje':'Aquí se registran usuarios'}
