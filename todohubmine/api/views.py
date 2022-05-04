@@ -12,19 +12,23 @@ class UsuarioView(View):
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
 
-    def get(self, request):
+    """def get(self, request):
         usuarios = list(Usuarios.objects.values())
         if len(usuarios)>0:
             datos={'mensaje':'Exito', 'Usuarios': usuarios}
         else:
             datos={'mensaje':'Sin Éxito'}
-        return JsonResponse(datos)  
+        return JsonResponse(datos)  """
 
     def post(self, request):
-        datos={'mensaje':'Exito'}
-        jd = json.loads(request.body)
-        Usuarios.objects.create(nombre=jd['nombre'],apellidos=jd['apellidos'],email=jd['email'],password=jd['password'])
-        return JsonResponse(datos)
+        if request.method == 'POST':
+            datos={'mensaje':'Exito'}
+            jd = json.loads(request.body)
+            Usuarios.objects.create(nombre=jd['nombre'],apellidos=jd['apellidos'],email=jd['email'],password=jd['password'])
+            return JsonResponse(datos)
+        else:
+            datos={'mensaje':'Aquí se registran usuarios'}
+            return JsonResponse(datos)  
 
     def put(self, request):
         pass
