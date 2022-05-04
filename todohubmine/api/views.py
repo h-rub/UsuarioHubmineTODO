@@ -25,7 +25,7 @@ class UsuarioView(View):
         if request.method == 'POST':
             datos={'mensaje':'Exito'}
             jd = json.loads(request.body)
-            Usuarios.objects.create(nombre=jd['nombre'],apellidos=jd['apellidos'],email=jd['email'],password=make_password(jd['password']))
+            Usuarios.objects.create(name=jd['name'],last_name=jd['last_name'],email=jd['email'],password=make_password(jd['password']))
             return JsonResponse(datos)
         else:
             datos={'mensaje':'Aquí se registran usuarios'}
