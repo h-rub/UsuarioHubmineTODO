@@ -10,3 +10,14 @@ class Usuarios(models.Model):
     email = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
 
+class Priority(models.Model):
+    priorityName = models.CharField(max_length=50)
+
+class Tasks(models.Model):
+    title = models.CharField(max_length=50)
+    description = models.CharField(max_length=50)
+    dead_line = models.DateField()
+    isCompleted = models.BooleanField()
+    priority_id = models.ForeignKey(Priority, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
+

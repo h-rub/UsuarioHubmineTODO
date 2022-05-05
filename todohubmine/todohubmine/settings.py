@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-i5)5t%45*h^9))8z@p$ci3g8)l8_1sr@#ni(0st&tp5(_dpo#2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api'
+    'api' #Aquí se instala la aplicación
 ]
 
 MIDDLEWARE = [
@@ -76,14 +76,12 @@ WSGI_APPLICATION = 'todohubmine.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'HOST':'localhost',
-        'PORT':'3306',
-        'USER':'root',
-        'PASSWORD':'123456',
-        'NAME':'hubtodo',
-        'OPTIONS':{'init_command' : "SET sql_mode = 'STRICT_TRANS_TABLES'"}
-        #'NAME': BASE_DIR / 'db.sqlite3',
+        'PORT':5433, #Aquí también puede ser el 5432
+        'USER':'postgres',
+        'PASSWORD':'P3peM3Z4',
+        'NAME':'hubtodo_postgresql'
     }
 }
 
