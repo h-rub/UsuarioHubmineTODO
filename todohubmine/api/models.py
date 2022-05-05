@@ -20,4 +20,5 @@ class Tasks(models.Model):
     isCompleted = models.BooleanField()
     priority_id = models.ForeignKey(Priority, on_delete=models.CASCADE)
     user_id = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
 
