@@ -79,8 +79,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'HOST':'localhost',
         'PORT':5433, #Aquí también puede ser el 5432
-        'USER':'postgres',
-        'PASSWORD':'P3peM3Z4',
+        'USER':'postgres', 
+        'PASSWORD':'P3peM3Z4', #Contraseña en mi servidor local
         'NAME':'hubtodo_postgresql'
     }
 }
